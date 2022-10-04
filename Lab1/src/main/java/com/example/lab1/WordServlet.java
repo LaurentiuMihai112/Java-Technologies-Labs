@@ -15,7 +15,8 @@ public class WordServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         var word = request.getParameter("word");
-        if (word != null) {
+        System.out.println(word);
+        if (word.length() != 0) {
             var characters = word.toCharArray();
             Arrays.sort(characters);
             PrintWriter out = response.getWriter();
@@ -31,6 +32,7 @@ public class WordServlet extends HttpServlet {
             PrintWriter out = response.getWriter();
             out.println("<html><body>");
             out.println("<h1>" + "Please fill parameter word" + "</h1>");
+            out.println("<div> http://localhost:8080/Lab1_war/word-servlet?word=YourWord </div>");
             out.println("</body></html>");
         }
     }
