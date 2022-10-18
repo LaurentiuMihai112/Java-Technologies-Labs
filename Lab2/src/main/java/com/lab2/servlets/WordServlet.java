@@ -28,8 +28,7 @@ public class WordServlet extends HttpServlet {
 
     private void forwardToResultPage(HttpServletRequest request, HttpServletResponse response, ArrayList<WordModel> results) throws ServletException, IOException {
         request.setAttribute("results", results);
-        RequestDispatcher rq = request.getRequestDispatcher("result.jsp");
-        rq.forward(request, response);
+        request.getRequestDispatcher("/result.jsp").forward(request, response);
     }
 
     public void destroy() {

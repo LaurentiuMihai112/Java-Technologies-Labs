@@ -18,15 +18,12 @@ public class DecorateResponseFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
-        var out = response.getWriter();
-        out.write("<p>Lorem ipsum dolor sit amet</p>");
         SimpleResponseWrapper wrapper = new SimpleResponseWrapper((HttpServletResponse) response);
+
+        chain.doFilter(request, wrapper);
+
+        var out = response.getWriter();
         String content = wrapper.toString();
-
-        chain.doFilter(request, response);
-
-        content += "<p>Lorem ipsum dolor sit amet</p>";
-        PrintWriter pw = response.getWriter();
-        pw.write(content);
+        out.write("<p>Lorem ipsum dolor sit amet</p>" + content + "<p>Lorem ipsum dolor sit amet</p>");
     }
 }

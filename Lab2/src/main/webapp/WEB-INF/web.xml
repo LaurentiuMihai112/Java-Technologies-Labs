@@ -6,10 +6,10 @@
     <welcome-file-list>
         <welcome-file>input.jsp</welcome-file>
     </welcome-file-list>
-    <filter-mapping>
-        <filter-name>LogRequestFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
+<!--    <filter-mapping>-->
+<!--        <filter-name>LogRequestFilter</filter-name>-->
+<!--        <url-pattern>/*</url-pattern>-->
+<!--    </filter-mapping>-->
     <filter-mapping>
         <filter-name>DecorateResponseFilter</filter-name>
         <url-pattern>/*</url-pattern>
