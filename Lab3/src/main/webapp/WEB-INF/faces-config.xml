@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+              http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+              version="1.2">
+
+    <application>
+
+        <resource-bundle>
+            <base-name>Locales</base-name>
+            <var>locales</var>
+        </resource-bundle>
+    </application>
+    <navigation-rule>
+        <from-view-id>/main.xhtml</from-view-id>
+
+        <navigation-case>
+            <from-outcome>addTeam</from-outcome>
+            <to-view-id>city/add.xhtml</to-view-id>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>viewTeam</from-outcome>
+            <to-view-id>city/view.xhtml</to-view-id>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>removeTeam</from-outcome>
+            <to-view-id>city/remove.xhtml</to-view-id>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>addCity</from-outcome>
+            <to-view-id>city/add.xhtml</to-view-id>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>removeCity</from-outcome>
+            <to-view-id>city/remove.xhtml</to-view-id>
+        </navigation-case>
+
+        <navigation-case>
+            <from-outcome>viewCity</from-outcome>
+            <to-view-id>city/view.xhtml</to-view-id>
+        </navigation-case>
+
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>team/add.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/main.xhtml</to-view-id>
+        </navigation-case>
+
+    </navigation-rule>
+
+
+    <navigation-rule>
+        <from-view-id>city/add.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/main.xhtml</to-view-id>
+        </navigation-case>
+
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>team/remove.xhtml</from-view-id>
+
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/main.xhtml</to-view-id>
+        </navigation-case>
+
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>team/view.xhtml</from-view-id>
+
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/main.xhtml</to-view-id>
+        </navigation-case>
+
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>city/remove.xhtml</from-view-id>
+
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/main.xhtml</to-view-id>
+        </navigation-case>
+
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>city/view.xhtml</from-view-id>
+
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/main.xhtml</to-view-id>
+        </navigation-case>
+
+    </navigation-rule>
+
+    <managed-bean>
+        <managed-bean-name>CityBean</managed-bean-name>
+        <managed-bean-class>com.lab3.controllers.CityBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>TeamBean</managed-bean-name>
+        <managed-bean-class>com.lab3.controllers.TeamBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>CityInputBean</managed-bean-name>
+        <managed-bean-class>com.lab3.controllers.CityInputBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>TeamInputBean</managed-bean-name>
+        <managed-bean-class>com.lab3.controllers.TeamInputBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+
+
+    <application>
+
+        <locale-config>
+            <default-locale>en</default-locale>
+            <supported-locale>fr</supported-locale>
+        </locale-config>
+
+        <resource-bundle>
+            <base-name>messages</base-name>
+            <var>en</var>
+        </resource-bundle>
+    </application>
+
+</faces-config>

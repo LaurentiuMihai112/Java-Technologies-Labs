@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+<h:head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Remove Team</title>
+</h:head>
+<h:body style="padding: 60px; min-height: 2000px;">
+    <b:container>
+        <b:form id="cityRemoveForm">
+            <legend>Remove Team</legend>
+            <b:inputText id="teamId" value="#{TeamBean.id}" name="cityId" placeholder="TeamId" required="true" requiredMessage="Please input Team Id!"/>
+            <h:outputText value=" &lt;br /&gt;  &lt;br /&gt; " escape="false" />
+            <b:commandButton look="primary" action="#{TeamBean.removeTeamById()}" style="background-color:red;margin-right: 10px" value="Remove"></b:commandButton>
+            <b:button look="default" style="outline:none" outcome="home" value="Back"></b:button>
+        </b:form>
+    </b:container>
+</h:body>
+</html>

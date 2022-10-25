@@ -1,6 +1,7 @@
 package com.lab3.dao.implementation;
 
 import com.lab3.dao.interfaces.TeamDAO;
+import com.lab3.models.City;
 import com.lab3.models.Team;
 import com.lab3.utilities.DatabaseRepository;
 
@@ -41,13 +42,26 @@ public class TeamDAOImplementation implements TeamDAO {
 
     @Override
     public Team getTeamById(int id) {
-        return null;
+        String query = "SELECT * FROM TEAM WHERE id=" + "'" + id + "'" + ";";
+        ResultSet resultSet = databaseRepository.run(query);
+        try {
+            if (resultSet.first()) {
+                return new Team(
+                        resultSet.getInt(0),
+                        resultSet.getString(1),
+                        resultSet.getDate(2),
+                        resultSet.getInt(3));
+            } else {
+                return null;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public void addTeam(Team team) {
-        String query = "INSERT INTO TEAM VALUES (" + "'" + team.getId() + "'," + "'" + team.getName() + "'" + "'" + team.getFoundingDate() + "'" + "'" + team.getCityId() + "'" + ");";
-
+        String query = "INSERT INTO TEAM VALUES (" + "'" + team.getId() + "'," + "'" + team.getName() + "'," + "'" + team.getFoundingDate() + "'," + "'" + team.getCityId() + "'" + ");";
         databaseRepository.run(query);
     }
 

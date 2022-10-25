@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+<h:head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>View Cities</title>
+</h:head>
+<h:body>
+    <h:form style=" position: absolute; top: 50%;left: 50%; transform: translate(-50%, -50%);">
+        <b:dataTable value="#{CityBean.getCities()}"
+                     var="city"
+                     page-length="5"
+                     page-length-menu="5,10,20">
+            <b:dataTableColumn value="#{city.getId()}"/>
+            <b:dataTableColumn value="#{city.getName()}"/>
+        </b:dataTable>
+        <b:button look="default" style="margin-top: 15px;outline:none; width:80px;" outcome="home"
+                  value="Back"></b:button>
+    </h:form>
+</h:body>
+</html>

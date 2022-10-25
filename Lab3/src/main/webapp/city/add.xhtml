@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+<h:head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Add City</title>
+</h:head>
+<h:body style="padding: 60px; min-height: 2000px;">
+    <b:container>
+        <h:form id="cityForm">
+            <legend>Add City</legend>
+            <b:inputText id="name" value="#{CityInputBean.name}" name="name" placeholder="Subject" required="true" requiredMessage="Please input name of the city"/>
+            <b:button look="default" style="outline:none" outcome="home" value="Back"></b:button>
+        </h:form>
+    </b:container>
+</h:body>
+</html>

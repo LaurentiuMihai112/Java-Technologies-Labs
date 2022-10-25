@@ -1,16 +1,21 @@
 package com.lab3.models;
 
-import javax.xml.crypto.Data;
 import java.util.Date;
 
 public class Team {
-    private final int id;
+    private int id;
     private String name;
     private Date foundingDate;
     private final int cityId;
 
     public Team(int id, String name, Date foundingDate, int cityId) {
         this.id = id;
+        this.name = name;
+        this.foundingDate = foundingDate;
+        this.cityId = cityId;
+    }
+
+    public Team(String name, Date foundingDate, int cityId) {
         this.name = name;
         this.foundingDate = foundingDate;
         this.cityId = cityId;

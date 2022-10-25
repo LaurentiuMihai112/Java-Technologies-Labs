@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+
+<h:head>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Lab3 App!</title>
+</h:head>
+
+<h:body>
+
+  <h:panelGroup id="wrapper" style="position: absolute; top: 50%;left: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; width:20%" >
+    <h:outputLabel>Teams</h:outputLabel>
+    <b:button look="default" style="margin-right: 10px" outcome="addTeam" value="Add"></b:button>
+    <b:button look="default" style="margin-right: 10px" outcome="removeTeam" value="Remove"></b:button>
+    <b:button look="default" style="margin-right: 10px" outcome="viewTeam" value="View"></b:button>
+    <h:outputLabel>Cities</h:outputLabel>
+    <b:button look="default" style="margin-right: 10px" outcome="addCity" value="Add"></b:button>
+    <b:button look="default" style="margin-right: 10px" outcome="viewCity" value="View"></b:button>
+    <b:button look="default" style="margin-right: 10px" outcome="removeCity" value="Remove"></b:button>
+
+
+  </h:panelGroup>
+</h:body>
+
+</html>

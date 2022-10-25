@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+<h:head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Remove City</title>
+</h:head>
+<h:body style="padding: 60px; min-height: 2000px;">
+    <b:container>
+        <b:form id="cityRemoveForm">
+            <legend>Remove City</legend>
+            <b:inputText id="cityId" value="#{CityBean.id}" name="cityId" placeholder="CityId" required="true" requiredMessage="Please input City Id!"/>
+            <h:outputText value=" &lt;br /&gt;  &lt;br /&gt; " escape="false" />
+            <b:commandButton look="primary" action="#{CityBean.removeCity()}" style="background-color:red;margin-right: 10px" value="Remove"></b:commandButton>
+            <b:button look="default" style="outline:none" outcome="home" value="Back"></b:button>
+        </b:form>
+    </b:container>
+</h:body>
+</html>

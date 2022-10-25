@@ -1,34 +1,26 @@
 package com.lab3.utilities;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DatabaseRepository {
     private Connection connection;
-
-    private static DatabaseRepository dbInstance = null;
+    private static DatabaseRepository databaseInstance = null;
 
     private DatabaseRepository() {
         try {
-            Context ctx = new InitialContext(System.getProperties());
-            DataSource dataSource = (DataSource) ctx.lookup("postgresjndi");
-            connection = dataSource.getConnection();
-        } catch (NamingException | SQLException e) {
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Lab3db", "postgres", "admin");
+            System.out.println("Connected to PostgreSQL database!");
+        } catch (SQLException e) {
+            System.out.println("Connection failure.");
             e.printStackTrace();
         }
     }
 
     public static DatabaseRepository get() {
-        if (dbInstance == null) {
-            dbInstance = new DatabaseRepository();
+        if (databaseInstance == null) {
+            databaseInstance = new DatabaseRepository();
         }
-        return dbInstance;
+        return databaseInstance;
     }
 
     public ResultSet run(String query) {
