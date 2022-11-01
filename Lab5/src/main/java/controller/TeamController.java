@@ -1,46 +1,51 @@
 package controller;
 
-import service.CityService;
+import models.City;
+import service.TeamService;
+
+import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
-import models.City;
+import models.Team;
 
 /**
  *
  * @author Laurentiu
  */
-@ManagedBean(name = "cityBean", eager = false)
+@ManagedBean(name = "teamBean", eager = false)
 @RequestScoped
-public class CityController {
+public class TeamController {
 
     private Long id;
     private String name;
+    private Date foundingDate;
+    private long cityId;
     private String result;
 
     @Inject
-    private CityService cityService;
+    private TeamService teamService;
 
-    public List<City> getCities() {
-        return this.cityService.getCities();
+    public List<Team> getTeams() {
+        return this.teamService.getTeams();
     }
 
-    public void addCity() {
+    public void addTeam() {
         try {
-            cityService.addCity(new City(name));
-            this.result = "City added succesully";
+            teamService.addTeam(new Team(name, foundingDate, cityId));
+            this.result = "Team added succesully";
         } catch (Exception e) {
-            this.result = "City adding failed";
+            this.result = "Team adding failed";
         }
     }
 
-    public void removeCityById() {
+    public void removeTeamById() {
         try {
-            cityService.removeCity(id);
-            this.result = "City removed succesully";
+            teamService.removeTeam(id);
+            this.result = "Team removed succesully";
         } catch (Exception e) {
-            this.result = "City removing failed";
+            this.result = "Team removing failed";
         }
     }
 
@@ -51,8 +56,6 @@ public class CityController {
     public void setId(Long id) {
         this.id = id;
     }
-
-
 
     public String getName() {
         return name;

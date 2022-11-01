@@ -5,20 +5,20 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:b="http://bootsfaces.net/ui">
     <h:head>
-        <title>Delete City</title>
+        <title>Delete Team</title>
     </h:head>
     <h:body style="padding: 60px; min-height: 2000px;">
         <b:container>
-            <b:form id="cityForm">
-                <h:outputText value="#{cityBean.result}" />
-                <legend>Delete City</legend>
-                <b:inputText id="id" value="#{cityBean.id}" name="id" placeholder="City Id" required="true" requiredMessage="Please input City ID!">
+            <b:form id="teamForm">
+                <h:outputText value="#{teamBean.result}" />
+                <legend>Delete Team</legend>
+                <b:inputText id="id" value="#{teamBean.id}" name="id" placeholder="Team Id" required="true" requiredMessage="Please input Team ID!">
                     <f:facet name="prepend">
                         <b:icon name="pencil"/>
                     </f:facet>
                 </b:inputText>
                 <h:outputText value=" &lt;br /&gt;  &lt;br /&gt; " escape="false" />
-                <b:commandButton look="primary" action="#{cityBean.removeCityById()}" value="Remove" style="margin-right: 10px" >
+                <b:commandButton look="primary" action="#{teamBean.removeTeamById()}" value="Remove" style="margin-right: 10px" >
                 </b:commandButton>
                 <b:button look="default" style="outline:none" outcome="home" value="Back"/>
             </b:form>

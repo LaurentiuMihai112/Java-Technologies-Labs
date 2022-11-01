@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Add Team</title>
+    </h:head>
+    <h:body style="padding: 60px; min-height: 2000px;">
+        <b:form id="teamForm">
+            <h:outputText value="#{teamBean.result}" />
+            <legend>Add Team</legend>
+            <b:inputText id="teamname" value="#{teamBean.name}" name="teamName" placeholder="Team Name" required="true" requiredMessage="Please input team name!">
+                <f:facet name="prepend">
+                    <b:icon name="pencil"/>
+                </f:facet>
+            </b:inputText>
+            <h:outputText value=" &lt;br /&gt;  &lt;br /&gt; " escape="false" />
+            <b:datepicker id="foundingDate" value="#{teamBean.name}" required="true" requiredMessage="Please founding Date!">
+                <f:facet name="prepend">
+                    <b:icon name="pencil"/>
+                </f:facet>
+            </b:datepicker>
+            <b:inputText id="CityId" value="#{teamBean.name}" name="CityId" placeholder="City Id" required="true" requiredMessage="Please input city id!">
+                <f:facet name="prepend">
+                    <b:icon name="pencil"/>
+                </f:facet>
+            </b:inputText>
+            <b:commandButton look="primary" action="#{teamBean.addTeam()}" style="margin-right: 10px" value="Add"/>
+            <b:button look="default" style="margin-top: 15px;outline:none; width:80px;" outcome="home" value="Back"/>
+        </b:form>    
+    </h:body>
+</html>
+

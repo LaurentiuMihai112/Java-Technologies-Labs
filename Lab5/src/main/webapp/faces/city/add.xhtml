@@ -9,16 +9,16 @@
     </h:head>
     <h:body style="padding: 60px; min-height: 2000px;">
         <b:form id="cityForm">
-            
+            <h:outputText value="#{cityBean.result}" />
             <legend>Add City</legend>
-            <b:inputText id="examId" value="#{AddCityController.name}" name="examId" placeholder="Exam Id" required="true" requiredMessage="Please input Id of exam!">
+            <b:inputText id="cityId" value="#{cityBean.name}" name="cityId" placeholder="City Name" required="true" requiredMessage="Please input city name!">
                 <f:facet name="prepend">
-                    <b:icon name="user"/>
+                    <b:icon name="pencil"/>
                 </f:facet>
             </b:inputText>
             <h:outputText value=" &lt;br /&gt;  &lt;br /&gt; " escape="false" />
-            <b:commandButton look="primary" action="#{AddCityController.addCity()}" style="margin-right: 10px" value="Add"></b:commandButton>
-            <b:button look="default" style="margin-top: 15px;outline:none; width:80px;" outcome="home" value="Back"></b:button>
+            <b:commandButton look="primary" action="#{cityBean.addCity()}" style="margin-right: 10px" value="Add"/>
+            <b:button look="default" style="margin-top: 15px;outline:none; width:80px;" outcome="home" value="Back"/>
         </b:form>    
     </h:body>
 </html>
