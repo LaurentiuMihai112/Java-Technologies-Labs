@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Add City</title>
+    </h:head>
+    <h:body style="padding: 60px; min-height: 2000px;">
+        <b:form id="cityForm">
+            
+            <legend>Add City</legend>
+            <b:inputText id="examId" value="#{AddCityController.name}" name="examId" placeholder="Exam Id" required="true" requiredMessage="Please input Id of exam!">
+                <f:facet name="prepend">
+                    <b:icon name="user"/>
+                </f:facet>
+            </b:inputText>
+            <h:outputText value=" &lt;br /&gt;  &lt;br /&gt; " escape="false" />
+            <b:commandButton look="primary" action="#{AddCityController.addCity()}" style="margin-right: 10px" value="Add"></b:commandButton>
+            <b:button look="default" style="margin-top: 15px;outline:none; width:80px;" outcome="home" value="Back"></b:button>
+        </b:form>    
+    </h:body>
+</html>
+

@@ -13,11 +13,11 @@
         </resource-bundle>
     </application>
     <navigation-rule>
-        <from-view-id>/main.xhtml</from-view-id>
+        <from-view-id>/faces/main.xhtml</from-view-id>
 
         <navigation-case>
             <from-outcome>addTeam</from-outcome>
-            <to-view-id>city/add.xhtml</to-view-id>
+            <to-view-id>faces/city/add.xhtml</to-view-id>
         </navigation-case>
 
         <navigation-case>
@@ -32,7 +32,7 @@
 
         <navigation-case>
             <from-outcome>addCity</from-outcome>
-            <to-view-id>city/add.xhtml</to-view-id>
+            <to-view-id>faces/city/add.xhtml</to-view-id>
         </navigation-case>
 
         <navigation-case>
@@ -51,17 +51,17 @@
         <from-view-id>team/add.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>home</from-outcome>
-            <to-view-id>/main.xhtml</to-view-id>
+            <to-view-id>/faces/main.xhtml</to-view-id>
         </navigation-case>
 
     </navigation-rule>
 
 
     <navigation-rule>
-        <from-view-id>city/add.xhtml</from-view-id>
+        <from-view-id>faces/city/add.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>home</from-outcome>
-            <to-view-id>/main.xhtml</to-view-id>
+            <to-view-id>/faces/main.xhtml</to-view-id>
         </navigation-case>
 
     </navigation-rule>
@@ -71,7 +71,7 @@
 
         <navigation-case>
             <from-outcome>home</from-outcome>
-            <to-view-id>/main.xhtml</to-view-id>
+            <to-view-id>/faces/main.xhtml</to-view-id>
         </navigation-case>
 
     </navigation-rule>
@@ -81,7 +81,7 @@
 
         <navigation-case>
             <from-outcome>home</from-outcome>
-            <to-view-id>/main.xhtml</to-view-id>
+            <to-view-id>/faces/main.xhtml</to-view-id>
         </navigation-case>
 
     </navigation-rule>
@@ -91,7 +91,7 @@
 
         <navigation-case>
             <from-outcome>home</from-outcome>
-            <to-view-id>/main.xhtml</to-view-id>
+            <to-view-id>/faces/main.xhtml</to-view-id>
         </navigation-case>
 
     </navigation-rule>
@@ -101,7 +101,7 @@
 
         <navigation-case>
             <from-outcome>home</from-outcome>
-            <to-view-id>/main.xhtml</to-view-id>
+            <to-view-id>/faces/main.xhtml</to-view-id>
         </navigation-case>
 
     </navigation-rule>

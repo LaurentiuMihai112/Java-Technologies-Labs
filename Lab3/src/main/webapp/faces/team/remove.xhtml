@@ -11,8 +11,8 @@
             <legend>Remove Team</legend>
             <b:inputText id="teamId" value="#{TeamBean.id}" name="cityId" placeholder="TeamId" required="true" requiredMessage="Please input Team Id!"/>
             <h:outputText value=" &lt;br /&gt;  &lt;br /&gt; " escape="false" />
-            <b:commandButton look="primary" action="#{TeamBean.removeTeamById()}" style="background-color:red;margin-right: 10px" value="Remove"></b:commandButton>
-            <b:button look="default" style="outline:none" outcome="home" value="Back"></b:button>
+            <b:commandButton look="primary" action="#{TeamBean.removeTeamById()}" value="Remove"/>
+            <b:button look="default" outcome="home" value="Back"/>
         </b:form>
     </b:container>
 </h:body>

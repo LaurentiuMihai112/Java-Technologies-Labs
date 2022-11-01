@@ -6,19 +6,19 @@
       xmlns:b="http://bootsfaces.net/ui">
 <h:head>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>View Teams</title>
+    <title>View Cities</title>
 </h:head>
 <h:body>
     <h:form style=" position: absolute; top: 50%;left: 50%; transform: translate(-50%, -50%);">
-        <b:dataTable value="#{TeamBean.getTeams()}"
+        <b:dataTable value="#{CityBean.getCities()}"
                      var="city"
-                     page-length="20">
+                     page-length="5"
+                     page-length-menu="5,10,20">
             <b:dataTableColumn value="#{city.getId()}"/>
-            <b:dataTableColumn value="#{city.getName()}" />
-            <b:dataTableColumn value="#{city.getFoundingDate()}" />
-            <b:dataTableColumn value="#{city.getCityId()}" />
+            <b:dataTableColumn value="#{city.getName()}"/>
         </b:dataTable>
-        <b:button look="default" style="margin-top: 15px;outline:none; width:80px;" outcome="home" value="Back"></b:button>
+        <b:button look="default" style="margin-top: 15px;outline:none; width:80px;" outcome="home"
+                  value="Back"/>
     </h:form>
 </h:body>
 </html>

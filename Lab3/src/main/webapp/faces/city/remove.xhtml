@@ -12,8 +12,8 @@
             <legend>Remove City</legend>
             <b:inputText id="cityId" value="#{CityBean.id}" name="cityId" placeholder="CityId" required="true" requiredMessage="Please input City Id!"/>
             <h:outputText value=" &lt;br /&gt;  &lt;br /&gt; " escape="false" />
-            <b:commandButton look="primary" action="#{CityBean.removeCity()}" style="background-color:red;margin-right: 10px" value="Remove"></b:commandButton>
-            <b:button look="default" style="outline:none" outcome="home" value="Back"></b:button>
+            <b:commandButton look="primary" action="#{CityBean.removeCity()}" value="Remove"/>
+            <b:button look="default" outcome="home" value="Back"/>
         </b:form>
     </b:container>
 </h:body>

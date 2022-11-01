@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.3"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd">
+    <navigation-rule>
+        <from-view-id>index.xhtml</from-view-id>
+        
+        <navigation-case>
+            <from-outcome>viewCity</from-outcome>
+            <to-view-id>/faces/city/view.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>addCity</from-outcome>
+            <to-view-id>/faces/city/add.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>removeCity</from-outcome>
+            <to-view-id>/faces/city/delete.xhtml</to-view-id>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>viewTeam</from-outcome>
+            <to-view-id>/faces/team/view.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>addTeam</from-outcome>
+            <to-view-id>/faces/team/add.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>removeTeam</from-outcome>
+            <to-view-id>/faces/team/delete.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+</faces-config>
