@@ -85,6 +85,13 @@ public class TeamController {
         return this.foundingDate;
     }
 
+    public String getStringDate(Date date) {
+        String pattern = "dd-MM-yyyy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String stringDate = simpleDateFormat.format(date);
+        return stringDate;
+    }
+
     public void setFoundingDate(Date foundingDate) {
         this.foundingDate = foundingDate;
     }
