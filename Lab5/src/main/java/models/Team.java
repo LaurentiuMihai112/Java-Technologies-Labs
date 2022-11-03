@@ -12,7 +12,7 @@ import java.util.Date;
  * @author Laurentiu
  */
 @Entity
-@Table(name = "team")
+@Table(name = "teamv2")
 @NamedQueries({
     @NamedQuery(name = "Team.findAll", query = "select t from Team t")
 })
@@ -27,7 +27,6 @@ public class Team implements Serializable {
     @Column
     private Date foundingDate;
     @Column(name = "city_id")
-    @Basic(optional = false)
     private long cityId;
 
     public Team(String name, Date foundingDate, Long cityId) {

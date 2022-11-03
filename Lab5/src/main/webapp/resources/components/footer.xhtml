@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+    <body>
+        <ui:composition>
+            <composite:interface>
+
+                <composite:attribute name="owner" type="java.lang.String" required="true">
+                </composite:attribute>
+
+                <composite:attribute name="version" type="java.lang.String" required="true">
+                </composite:attribute>
+
+                <composite:attribute name="namespace" type="java.lang.String" required="false">
+                </composite:attribute>
+
+
+            </composite:interface>
+
+            <composite:implementation>
+                <p style="position: fixed;left: 0;bottom: 0;width: 100%;background-color: #009999;color: white;text-align: center;">
+                    All rights reserved to ©#{cc.attrs.owner},Current Version:#{cc.attrs.version} <br/>
+                    The content of this project is to be used only @#{cc.attrs.namespace}
+                </p>
+            </composite:implementation>
+        </ui:composition>
+    </body>
+</html>

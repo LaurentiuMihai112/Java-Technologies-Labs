@@ -29,4 +29,9 @@ public class CityService {
         em.remove(city);
     }
 
+    public String getCity(Long id) {
+        City city = em.find(City.class, id);
+        return city.getName();
+    }
+
 }

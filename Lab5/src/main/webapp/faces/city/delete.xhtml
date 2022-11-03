@@ -3,26 +3,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <title>Delete City</title>
     </h:head>
     <h:body style="padding: 60px; min-height: 2000px;">
-        <b:container>
-            <b:form id="cityForm">
-                <h:outputText value="#{cityBean.result}" />
-                <legend>Delete City</legend>
-                <b:inputText id="id" value="#{cityBean.id}" name="id" placeholder="City Id" required="true" requiredMessage="Please input City ID!">
-                    <f:facet name="prepend">
-                        <b:icon name="pencil"/>
-                    </f:facet>
-                </b:inputText>
-                <h:outputText value=" &lt;br /&gt;  &lt;br /&gt; " escape="false" />
-                <b:commandButton look="primary" action="#{cityBean.removeCityById()}" value="Remove" style="margin-right: 10px" >
-                </b:commandButton>
-                <b:button look="default" style="outline:none" outcome="home" value="Back"/>
-            </b:form>
-        </b:container>
+        <ui:composition template="/WEB-INF/default.xhtml">
+            <ui:define name="content">
+                <b:container>
+                    <b:form id="cityForm">
+                        <h:outputText value="#{cityBean.result}" />
+                        <legend>Delete City</legend>
+                        <b:inputText id="id" value="#{cityBean.id}" name="id" placeholder="City Id" required="true" requiredMessage="Please input City ID!">
+                            <f:facet name="prepend">
+                                <b:icon name="pencil"/>
+                            </f:facet>
+                        </b:inputText>
+                        <h:outputText value=" &lt;br /&gt;  &lt;br /&gt; " escape="false" />
+                        <b:commandButton look="primary" action="#{cityBean.removeCityById()}" value="Remove" style="margin-right: 10px" >
+                        </b:commandButton>
+                        <b:button look="default" style="margin-top: 15px;outline:none; width:80px;" outcome="home" value="Back"/>
+                    </b:form>
+                </b:container>
+            </ui:define>
+        </ui:composition>
     </h:body>
 </html>
 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+    <ui:composition>
+        <composite:interface>
+            <composite:attribute name="brand" type="java.lang.String" required="false">
+            </composite:attribute>
+
+            <composite:attribute name="brandHref" type="java.lang.String" required="false">
+            </composite:attribute>
+
+
+        </composite:interface>
+
+        <composite:implementation>
+            <b:navBar brand="#{cc.attrs.brand}" brandHref="#{cc.attrs.brandHref}" id="schedulerNavBar">
+                <b:navbarLinks>
+                    <b:dropMenu value="Teams" >
+                        <b:navLink value="Add" href="#{messages['application.team.add']}"></b:navLink>
+                        <b:navLink value="View" href="#{messages['application.team.view']}"></b:navLink>
+                        <b:navLink value="Delete" href="#{messages['application.team.delete']}"></b:navLink>
+
+                    </b:dropMenu>
+                    <b:dropMenu value="Cities" >
+                        <b:navLink value="Add" href="#{messages['application.city.add']}"></b:navLink>
+                        <b:navLink value="View" href="#{messages['application.city.view']}"></b:navLink>
+                        <b:navLink value="Delete" href="#{messages['application.city.delete']}"></b:navLink>
+                    </b:dropMenu>
+                </b:navbarLinks>
+            </b:navBar>
+        </composite:implementation>
+
+    </ui:composition>
+</html>

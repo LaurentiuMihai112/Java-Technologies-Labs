@@ -32,5 +32,55 @@
             <to-view-id>/faces/team/delete.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
-
+    
+    <navigation-rule>  
+        <from-view-id>/faces/team/add.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>  
+        <from-view-id>/faces/team/view.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>  
+        <from-view-id>/faces/team/delete.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>  
+        <from-view-id>/faces/city/add.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>  
+        <from-view-id>/faces/city/view.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>  
+        <from-view-id>/faces/city/delete.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <application>
+        <resource-bundle>
+            <base-name>Messages</base-name>
+            <var>messages</var>
+        </resource-bundle>
+    </application>
 </faces-config>

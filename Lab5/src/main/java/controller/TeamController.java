@@ -1,14 +1,17 @@
 package controller;
 
-import models.City;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import service.TeamService;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import models.Team;
+import service.CityService;
 
 /**
  *
@@ -21,11 +24,15 @@ public class TeamController {
     private Long id;
     private String name;
     private Date foundingDate;
-    private long cityId;
+    private Long cityId;
+    private String cityName;
     private String result;
 
     @Inject
     private TeamService teamService;
+
+    @Inject
+    private CityService cityService;
 
     public List<Team> getTeams() {
         return this.teamService.getTeams();
@@ -33,6 +40,7 @@ public class TeamController {
 
     public void addTeam() {
         try {
+            System.out.println("*** DATE " + foundingDate);
             teamService.addTeam(new Team(name, foundingDate, cityId));
             this.result = "Team added succesully";
         } catch (Exception e) {
@@ -71,6 +79,31 @@ public class TeamController {
 
     public void setResult(String result) {
         this.result = result;
+    }
+
+    public Date getFoundingDate() {
+        return this.foundingDate;
+    }
+
+    public void setFoundingDate(Date foundingDate) {
+        this.foundingDate = foundingDate;
+    }
+
+    public Long getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(Long cityId) {
+        this.cityId = cityId;
+    }
+
+    public String getCityName(Long cityId) {
+        cityName = this.cityService.getCity(cityId);
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 
 }
