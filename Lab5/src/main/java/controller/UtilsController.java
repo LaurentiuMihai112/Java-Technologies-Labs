@@ -13,18 +13,19 @@ import service.CityService;
 import service.PlayerService;
 import service.TeamService;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+
 import javax.inject.Inject;
 import java.util.*;
 
 import static java.lang.Math.min;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 
 /**
  * @author Laurentiu
  */
-@ManagedBean(name = "Utils", eager = false)
-@SessionScoped
+@Named("Utils")
+@RequestScoped
 public class UtilsController implements Serializable{
 
     private final List<String> positions = new ArrayList<>(Arrays.asList("Goal Keeper", "Quarterback", "Quarterback", "Midfielder", "Midfielder", "Midfielder", "Forward", "Forward", "Forward", "Forward"));
@@ -37,16 +38,6 @@ public class UtilsController implements Serializable{
     private int playerCount = 10;
     private int teamCount = 10;
 
-//    public void generatePlayers() {
-//        Faker faker = new Faker();
-//        for (int index = 0; index < playerCount; index++) {
-//            String name = faker.name().fullName();
-//            int age = faker.number().numberBetween(20, 40);
-//            int positionIndex = faker.number().numberBetween(0, 9);
-//            Player player = new Player(name, age, positions.get(positionIndex));
-//            playerService.addPlayer(player);
-//        }
-//    }
     public void generateTeamsAndCities() {
         Faker faker = new Faker();
         for (int index = 0; index < teamCount; index++) {

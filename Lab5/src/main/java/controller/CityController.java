@@ -3,19 +3,17 @@ package controller;
 import java.io.Serializable;
 import service.CityService;
 import java.util.List;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import models.City;
 
 /**
  *
  * @author Laurentiu
  */
-@ManagedBean(name = "cityBean", eager = false)
+@Named("cityBean")
 @RequestScoped
-//@Named("cityBean")
-//@RequestScoped
 public class CityController implements Serializable {
 
     private Long id;

@@ -2,20 +2,18 @@ package controller;
 
 import models.Player;
 import service.PlayerService;
-
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 
 /**
  * @author Laurentiu
  */
-@ManagedBean(name = "playerBean", eager = false)
+@Named("playerBean")
 @RequestScoped
-//@Named("playerBean")
-//@ViewScoped
 public class PlayerController implements Serializable {
 
     private Long id;
@@ -32,7 +30,6 @@ public class PlayerController implements Serializable {
     private String ageFrame;
 
     private List<Player> criteriaSearchResult;
-
 
     @Inject
     private PlayerService playerService;
@@ -66,7 +63,6 @@ public class PlayerController implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-
 
     public String getName() {
         return name;
@@ -110,14 +106,17 @@ public class PlayerController implements Serializable {
 
     public void searchForPlayerByCriteria() {
         transactionResult = "Searched succesfully!";
-        criteriaSearchResult = playerService.searchByCriteria(playerPositionCriteria, playerPosition, ageFrameCriteria, ageFrame);
-        System.out.println("SIZE " + criteriaSearchResult.size() + "----------------------");
+        System.out.println(this.ageFrame);
+        System.out.println(this.playerPosition);
+        if (criteriaSearchResult == null) {
+            criteriaSearchResult = playerService.searchByCriteria(playerPositionCriteria, playerPosition, ageFrameCriteria, ageFrame);
+            System.out.println("SIZE " + criteriaSearchResult.size() + "----------------------");
+        }
     }
 
     public String getTransactionResult() {
         return transactionResult;
     }
-
 
     public boolean isPlayerPositionCriteria() {
         return playerPositionCriteria;
@@ -152,6 +151,9 @@ public class PlayerController implements Serializable {
     }
 
     public List<Player> getCriteriaSearchResults() {
+        if (criteriaSearchResult == null) {
+            criteriaSearchResult = new ArrayList<>();
+        }
         return criteriaSearchResult;
     }
 

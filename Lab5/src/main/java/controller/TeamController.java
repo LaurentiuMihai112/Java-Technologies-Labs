@@ -6,9 +6,7 @@ import service.TeamService;
 
 import java.util.Date;
 import java.util.List;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.faces.view.ViewScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import models.Team;
@@ -18,10 +16,8 @@ import service.CityService;
  *
  * @author Laurentiu
  */
-@ManagedBean(name = "teamBean", eager = false)
-@SessionScoped
-//@Named("cityBean")
-//@ViewScoped
+@Named("teamBean")
+@RequestScoped
 public class TeamController implements Serializable{
 
     private Long id;
