@@ -4,18 +4,16 @@
  */
 package models;
 
-import java.io.Serializable;
-import java.util.Objects;
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
- *
  * @author Laurentiu
  */
 @Entity
 @Table(name = "city")
 @NamedQueries({
-    @NamedQuery(name = "City.findAll", query = "select c from City c")
+        @NamedQuery(name = "City.findAll", query = "select c from City c")
 })
 public class City implements Serializable {
 
@@ -53,5 +51,5 @@ public class City implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-    
+
 }

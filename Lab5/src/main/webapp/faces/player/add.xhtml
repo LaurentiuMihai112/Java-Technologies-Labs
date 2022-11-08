@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"      
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Add Player</title>
+    </h:head>
+    <h:body style="padding: 60px; min-height: 2000px;">
+        <ui:composition template="/WEB-INF/default.xhtml">
+            <ui:define name="content">
+                <b:container>
+                    <b:form id="playerForm">
+                        <h:outputText value="#{playerBean.result}" />
+                        <legend>Add Player</legend>
+                        <b:inputText id="playerName" value="#{playerBean.name}" name="playerName" placeholder="Player Name" required="true" requiredMessage="Please input player name!">
+                            <f:facet name="prepend">
+                                <b:icon name="pencil"/>
+                            </f:facet>
+                        </b:inputText>
+                        <b:inputText id="playerAge" value="#{playerBean.age}" type="number" name="playerAge" required="true" requiredMessage="Please input player age!">
+                            <f:facet name="prepend">
+                                <b:icon name="pencil"/>
+                            </f:facet>
+                        </b:inputText>
+                        <b:inputText id="playerPosition" value="#{playerBean.position}" name="playerPosition" placeholder="Player Position" required="true" requiredMessage="Please input player position!">
+                            <f:facet name="prepend">
+                                <b:icon name="pencil"/>
+                            </f:facet>
+                        </b:inputText>
+                        <b:inputText id="playerTeamId" value="#{playerBean.teamId}" name="playerTeamId" placeholder="Player Team Id" required="true" requiredMessage="Please input player Team Id!">
+                            <f:facet name="prepend">
+                                <b:icon name="pencil"/>
+                            </f:facet>
+                        </b:inputText>
+                        <h:outputText value=" &lt;br /&gt;  &lt;br /&gt; " escape="false" />
+                        <b:commandButton look="primary" action="#{playerBean.addPlayer()}" style="margin-right: 10px" value="Add"/>
+                        <b:button look="default" style="margin-top: 15px;outline:none; width:80px;" outcome="home" value="Back"/>
+                    </b:form>  
+                    <br/>
+                    <br/>
+                    <b:form id="generate">
+                        <b:inputText  value="#{Utils.teamCount}" type="number">
+                            <f:facet name="prepend">
+                                <b:icon name="pencil"/>
+                            </f:facet>
+                        </b:inputText>
+                        <b:commandButton look="primary" action="#{Utils.generateTeamsAndCities()}" style="margin-right: 10px" value="Generate Players"/>
+                    </b:form>
+                </b:container>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

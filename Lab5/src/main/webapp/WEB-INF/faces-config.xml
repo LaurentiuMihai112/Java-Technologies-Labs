@@ -31,6 +31,19 @@
             <from-outcome>removeTeam</from-outcome>
             <to-view-id>/faces/team/delete.xhtml</to-view-id>
         </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>viewPlayer</from-outcome>
+            <to-view-id>/faces/player/view.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>addPlayer</from-outcome>
+            <to-view-id>/faces/player/add.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>removePlayer</from-outcome>
+            <to-view-id>/faces/player/delete.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     
     <navigation-rule>  
@@ -71,6 +84,28 @@
     </navigation-rule>
     <navigation-rule>  
         <from-view-id>/faces/city/delete.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>  
+        <from-view-id>/faces/player/add.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>  
+        <from-view-id>/faces/player/view.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>  
+        <from-view-id>/faces/player/delete.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>home</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>

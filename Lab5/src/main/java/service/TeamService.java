@@ -4,29 +4,33 @@
  */
 package service;
 
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import java.util.List;
 import models.Team;
+import repositories.TeamRepository;
+
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import java.util.List;
 
 @Stateless
 public class TeamService {
-
-    @PersistenceContext(unitName = "jpaPU")
-    EntityManager em;
+    
+    @EJB
+    private TeamRepository teamRepo;
 
     public List<Team> getTeams() {
-        return em.createNamedQuery("Team.findAll", Team.class).getResultList();
+        return teamRepo.findAll();
     }
 
     public void addTeam(Team team) {
-        em.persist(team);
+        teamRepo.persist(team);
     }
 
     public void removeTeam(Long id) {
-        Team team = em.find(Team.class, id);
-        em.remove(team);
+        Team team = teamRepo.findById(id);
+        teamRepo.remove(team);
     }
 
+    public Team getTeam(Long id) {
+        return teamRepo.findById(id);
+    }
 }

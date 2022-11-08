@@ -5,6 +5,7 @@
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <class>models.City</class>
         <class>models.Team</class>
+        <class>models.Player</class>
         <properties>
             <property name="javax.persistence.schema-generation.database.action" value="create"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>

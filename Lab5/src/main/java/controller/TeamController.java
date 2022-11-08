@@ -1,15 +1,16 @@
 package controller;
 
-import java.text.DateFormat;
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import service.TeamService;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import models.Team;
 import service.CityService;
 
@@ -18,8 +19,10 @@ import service.CityService;
  * @author Laurentiu
  */
 @ManagedBean(name = "teamBean", eager = false)
-@RequestScoped
-public class TeamController {
+@SessionScoped
+//@Named("cityBean")
+//@ViewScoped
+public class TeamController implements Serializable{
 
     private Long id;
     private String name;
@@ -105,7 +108,7 @@ public class TeamController {
     }
 
     public String getCityName(Long cityId) {
-        cityName = this.cityService.getCity(cityId);
+        cityName = this.cityService.getCity(cityId).getName();
         return cityName;
     }
 
@@ -113,4 +116,8 @@ public class TeamController {
         this.cityName = cityName;
     }
 
+    public String getTeamName(long teamId) {
+        return teamService.getTeam(teamId).getName();
+
+    }
 }

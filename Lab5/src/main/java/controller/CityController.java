@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.Serializable;
 import service.CityService;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -13,7 +14,9 @@ import models.City;
  */
 @ManagedBean(name = "cityBean", eager = false)
 @RequestScoped
-public class CityController {
+//@Named("cityBean")
+//@RequestScoped
+public class CityController implements Serializable {
 
     private Long id;
     private String name;
@@ -51,8 +54,6 @@ public class CityController {
     public void setId(Long id) {
         this.id = id;
     }
-
-
 
     public String getName() {
         return name;

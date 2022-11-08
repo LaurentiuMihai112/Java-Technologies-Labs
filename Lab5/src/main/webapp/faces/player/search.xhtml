@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
+<h:head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Search Players</title>
+</h:head>
+<h:body>
+    <h:form style=" position: absolute; top: 50%;left: 50%; transform: translate(-50%, -50%);">
+        <ui:composition template="/WEB-INF/default.xhtml">
+            <ui:define name="content">
+                <b:container>
+                    <b:form id="playerForm">
+                        <h:outputText value="#{playerBean.getTransactionResult()}"/>
+                        <legend>Search Players</legend>
+                        <b:form>
+                            <b:selectBooleanCheckbox value="#{playerBean.playerPositionCriteria}"
+                                                     caption="PlayerPosition"/>
+                            <b:inputText id="position" value="#{playerBean.playerPosition}" name="Position"
+                                         placeholder="Player's Position" required="true">
+                                <f:facet name="prepend">
+                                    <b:icon name="user"/>
+                                </f:facet>
+                            </b:inputText>
+                            <b:selectBooleanCheckbox value="#{playerBean.ageFrameCriteria}" caption="ageFrame"/>
+                            <b:inputText id="age" type="number" value="#{playerBean.ageFrame}" name="Age"
+                                         placeholder="Player's Age" required="true">
+                                <f:facet name="prepend">
+                                    <b:icon name="user"/>
+                                </f:facet>
+                            </b:inputText>
+                        </b:form>
+                        <b:dataTable id="Players" value="#{playerBean.criteriaSearchResults}"
+                                     var="player"
+                                     page-length="5"
+                                     page-length-menu="5,10,20">
+                            <f:facet name="header">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Position</th>
+                                    <th>Age</th>
+                                </tr>
+                            </f:facet>
+                            <b:dataTableColumn value="#{player.name}"/>
+                            <b:dataTableColumn value="#{player.position}"/>
+                            <b:dataTableColumn value="#{player.age}"/>
+                        </b:dataTable>
+                        <b:commandButton look="primary" update="Players"
+                                         action="#{playerBean.searchForPlayerByCriteria()}" value="Search"
+                                         style="margin-right: 10px">
+                        </b:commandButton>
+                        <b:button look="default" style="outline:none" outcome="home" value="Back"/>
+                    </b:form>
+                </b:container>
+            </ui:define>
+        </ui:composition>
+
+    </h:form>
+</h:body>
+</html>

@@ -4,34 +4,35 @@
  */
 package service;
 
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import java.util.List;
+import java.io.Serializable;
 import models.City;
+import repositories.CityRepository;
+
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import java.util.List;
 
 @Stateless
-public class CityService {
-
-    @PersistenceContext(unitName = "jpaPU")
-    EntityManager em;
+public class CityService implements Serializable{
+    
+    @EJB
+    private CityRepository cityRepo;
 
     public List<City> getCities() {
-        return em.createNamedQuery("City.findAll", City.class).getResultList();
+        return cityRepo.findAll();
     }
 
     public void addCity(City city) {
-        em.persist(city);
+        cityRepo.persist(city);
     }
 
     public void removeCity(Long id) {
-        City city = em.find(City.class, id);
-        em.remove(city);
+        City city = cityRepo.findById(id);
+        cityRepo.remove(city);
     }
 
-    public String getCity(Long id) {
-        City city = em.find(City.class, id);
-        return city.getName();
+    public City getCity(Long id) {
+        return cityRepo.findById(id);
     }
 
 }
