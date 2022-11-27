@@ -15,18 +15,18 @@
                 <b:container>
                     <h:form>
                         <h1><h:outputText value="City List"/></h1>
-                        <h:dataTable value="#{cityBean.cities}" var="c">
+                        <h:dataTable value="#{cityBean.cities}" var="m">
                             <h:column pt:style="width:200px;text-align:center;"> 
                                 <f:facet name="header">
                                     <h:outputText value="id"/>
                                 </f:facet>
-                                <h:outputText value="#{c.id}"/>
+                                <h:outputText value="#{m.id}"/>
                             </h:column>
                             <h:column pt:style="width:200px;text-align:center;">
                                 <f:facet name="header">
                                     <h:outputText value="name"/>
                                 </f:facet>
-                                <h:outputText value="#{c.name}"/>
+                                <h:outputText value="#{m.name}"/>
                             </h:column>
                         </h:dataTable>
                         <b:button look="default" style="margin-top: 15px;outline:none; width:80px;" outcome="home" value="Back"/>

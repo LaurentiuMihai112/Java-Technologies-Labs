@@ -44,6 +44,19 @@
             <from-outcome>removePlayer</from-outcome>
             <to-view-id>/faces/player/delete.xhtml</to-view-id>
         </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>viewAssignments</from-outcome>
+            <to-view-id>/faces/assignments/view.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>addAssignments</from-outcome>
+            <to-view-id>/faces/assignments/add.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>removeAssignments</from-outcome>
+            <to-view-id>/faces/assignments/delete.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     
     <navigation-rule>  
@@ -111,8 +124,30 @@
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
-        <navigation-rule>  
+    <navigation-rule>  
         <from-view-id>/faces/player/search.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>  
+        <from-view-id>/faces/assignments/add.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>  
+        <from-view-id>/faces/assignments/view.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>  
+        <from-view-id>/faces/assignments/delete.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>home</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
