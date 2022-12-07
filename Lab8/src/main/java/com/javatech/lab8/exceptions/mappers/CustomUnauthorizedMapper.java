@@ -1,0 +1,23 @@
+package com.javatech.lab8.exceptions.mappers;
+
+import com.javatech.lab8.exceptions.http.CustomUnauthorizedException;
+import com.javatech.lab8.utils.ResponsePayload;
+
+import javax.ws.rs.core.Response;
+import javax.ws.rs.ext.ExceptionMapper;
+import javax.ws.rs.ext.Provider;
+
+@Provider
+public class CustomUnauthorizedMapper implements ExceptionMapper<CustomUnauthorizedException> {
+    @Override
+    public Response toResponse(CustomUnauthorizedException e) {
+        ResponsePayload payload = new ResponsePayload(
+                "FAILED",
+                e.getMessage());
+
+        return Response
+                .status(Response.Status.NOT_FOUND.getStatusCode())
+                .entity(payload)
+                .build();
+    }
+}
