@@ -1,6 +1,6 @@
 package com.javatech.lab8.controller;
 
-import com.javatech.lab8.annotations.JWTTokenRequired;
+import com.javatech.lab8.annotations.JWTAuthRequired;
 import com.javatech.lab8.dtos.AccountDTO;
 import com.javatech.lab8.dtos.AccountLoginDTO;
 import com.javatech.lab8.dtos.AccountRegisterDTO;
@@ -25,7 +25,7 @@ public class UserController {
 
     @GET
     @Produces("application/json")
-    @JWTTokenRequired(Permissions = {
+    @JWTAuthRequired(Permissions = {
             Role.AUTHOR, Role.ADMIN, Role.REVIEWER})
     public Response getAccounts() {
         List<AccountDTO> accounts = accountService.gets();
@@ -45,7 +45,7 @@ public class UserController {
     @GET
     @Path("/{accountId}")
     @Produces("application/json")
-    @JWTTokenRequired(Permissions = {
+    @JWTAuthRequired(Permissions = {
             Role.AUTHOR, Role.ADMIN, Role.REVIEWER})
     public Response getAccount(@PathParam("accountId") Long accountId) {
 
@@ -140,7 +140,7 @@ public class UserController {
 
     @DELETE
     @Path("/{id}")
-    @JWTTokenRequired(Permissions = {
+    @JWTAuthRequired(Permissions = {
             Role.ADMIN})
     @Produces("application/json")
     public Response delete(@PathParam("id") long id) {

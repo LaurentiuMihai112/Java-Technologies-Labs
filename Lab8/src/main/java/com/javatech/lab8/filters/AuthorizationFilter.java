@@ -1,6 +1,6 @@
 package com.javatech.lab8.filters;
 
-import com.javatech.lab8.annotations.JWTTokenRequired;
+import com.javatech.lab8.annotations.JWTAuthRequired;
 import com.javatech.lab8.exceptions.AccountNotAllowedException;
 import com.javatech.lab8.pemissions.Role;
 import com.javatech.lab8.service.AccountService;
@@ -19,7 +19,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Provider
-@JWTTokenRequired
+@JWTAuthRequired
 @Priority(Priorities.AUTHORIZATION)
 public class AuthorizationFilter implements ContainerRequestFilter {
 
@@ -36,7 +36,7 @@ public class AuthorizationFilter implements ContainerRequestFilter {
 
             Principal principal = requestContext.getSecurityContext().getUserPrincipal();
 
-            JWTTokenRequired JWTContext = method.getAnnotation(JWTTokenRequired.class);
+            JWTAuthRequired JWTContext = method.getAnnotation(JWTAuthRequired.class);
             Role[] permissions = JWTContext.Permissions();
 
 

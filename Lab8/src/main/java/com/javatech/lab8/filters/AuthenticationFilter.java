@@ -1,6 +1,6 @@
 package com.javatech.lab8.filters;
 
-import com.javatech.lab8.annotations.JWTTokenRequired;
+import com.javatech.lab8.annotations.JWTAuthRequired;
 import com.javatech.lab8.exceptions.AccountInvalidTokenException;
 import com.javatech.lab8.exceptions.AuthorizationMissingTokenException;
 import com.javatech.lab8.tokens.TokenHandler;
@@ -15,7 +15,7 @@ import javax.ws.rs.ext.Provider;
 import java.security.Principal;
 
 @Provider
-@JWTTokenRequired
+@JWTAuthRequired
 @Priority(Priorities.AUTHENTICATION)
 public class AuthenticationFilter implements ContainerRequestFilter {
 

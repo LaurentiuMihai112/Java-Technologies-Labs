@@ -1,6 +1,6 @@
 package com.javatech.lab8.controller;
 
-import com.javatech.lab8.annotations.JWTTokenRequired;
+import com.javatech.lab8.annotations.JWTAuthRequired;
 import com.javatech.lab8.dtos.*;
 import com.javatech.lab8.pemissions.Role;
 import com.javatech.lab8.service.DocumentService;
@@ -26,7 +26,7 @@ public class DocumentController {
 
     @GET
     @Produces("application/json")
-    @JWTTokenRequired(Permissions = {Role.AUTHOR, Role.ADMIN})
+    @JWTAuthRequired(Permissions = {Role.AUTHOR, Role.ADMIN})
     public Response getDocuments() {
 
         List<DocumentDTO> documents = documentService.gets();
@@ -45,7 +45,7 @@ public class DocumentController {
     @GET
     @Path("/{documentId}")
     @Produces(MediaType.APPLICATION_JSON)
-    @JWTTokenRequired(Permissions = {Role.AUTHOR, Role.AUTHOR, Role.REVIEWER})
+    @JWTAuthRequired(Permissions = {Role.AUTHOR, Role.AUTHOR, Role.REVIEWER})
     public Response getDocument(@PathParam("documentId") Long documentId) {
 
         DocumentDTO document = documentService.get(documentId);
@@ -65,7 +65,7 @@ public class DocumentController {
     @GET
     @Path("/me")
     @Produces(MediaType.APPLICATION_JSON)
-    @JWTTokenRequired(Permissions = {Role.AUTHOR, Role.AUTHOR, Role.REVIEWER})
+    @JWTAuthRequired(Permissions = {Role.AUTHOR, Role.AUTHOR, Role.REVIEWER})
     public Response getPersonalDocuments(@Context SecurityContext securityContext) {
 
         Long id = Long.valueOf(securityContext.getUserPrincipal().getName());
@@ -87,7 +87,7 @@ public class DocumentController {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @JWTTokenRequired(Permissions = {Role.AUTHOR, Role.AUTHOR, Role.REVIEWER})
+    @JWTAuthRequired(Permissions = {Role.AUTHOR, Role.AUTHOR, Role.REVIEWER})
     public Response addDocument(@Context SecurityContext securityContext, DocumentAddDTO document) {
 
         Long id = Long.valueOf(securityContext.getUserPrincipal().getName());
@@ -107,7 +107,7 @@ public class DocumentController {
     @POST
     @Path("/{docId}/authors")
     @Produces("application/json")
-    @JWTTokenRequired(Permissions = {Role.AUTHOR, Role.AUTHOR, Role.REVIEWER})
+    @JWTAuthRequired(Permissions = {Role.AUTHOR, Role.AUTHOR, Role.REVIEWER})
     public Response addAuthorToDocument(@Context SecurityContext securityContext,
                                         @PathParam("docId") Long documentId,
                                         DocumentAddAuthorDTO author) {
@@ -128,7 +128,7 @@ public class DocumentController {
 
     @DELETE
     @Path("/{docId}")
-    @JWTTokenRequired(Permissions = {Role.AUTHOR, Role.AUTHOR, Role.REVIEWER})
+    @JWTAuthRequired(Permissions = {Role.AUTHOR, Role.AUTHOR, Role.REVIEWER})
     @Produces(MediaType.APPLICATION_JSON)
     public Response removeDocument(@Context SecurityContext securityContext, @PathParam("docId") Long documentId) {
 
@@ -150,7 +150,7 @@ public class DocumentController {
     @DELETE
     @Path("/{docId}/authors/{authorId}")
     @Produces("application/json")
-    @JWTTokenRequired(Permissions = {Role.AUTHOR, Role.AUTHOR, Role.REVIEWER})
+    @JWTAuthRequired(Permissions = {Role.AUTHOR, Role.AUTHOR, Role.REVIEWER})
     public Response removeAuthorFromDocument(@Context SecurityContext securityContext,
                                              @PathParam("docId") Long documentId,
                                              @PathParam("authorId") Long authorId) {
@@ -173,7 +173,7 @@ public class DocumentController {
     @Path("/{documentId}/references/")
     @Consumes("application/json")
     @Produces("application/json")
-    @JWTTokenRequired(Permissions = {Role.AUTHOR, Role.ADMIN, Role.REVIEWER})
+    @JWTAuthRequired(Permissions = {Role.AUTHOR, Role.ADMIN, Role.REVIEWER})
     public Response addReferenceToDocument(@Context SecurityContext securityContext,
                                            @PathParam("documentId") long documentId,
                                            DocumentAddReferenceDTO reference) {
@@ -196,7 +196,7 @@ public class DocumentController {
     @Path("/{documentId}/references/{referenceId}")
     @Consumes("application/json")
     @Produces("application/json")
-    @JWTTokenRequired(Permissions = {Role.AUTHOR, Role.ADMIN, Role.REVIEWER})
+    @JWTAuthRequired(Permissions = {Role.AUTHOR, Role.ADMIN, Role.REVIEWER})
     public Response deleteReferenceFromDocument(@Context SecurityContext securityContext,
                                                 @PathParam("documentId") long documentId,
                                                 @PathParam("referenceId") long referenceId) {
@@ -218,7 +218,7 @@ public class DocumentController {
     @GET
     @Path("/{documentId}/references")
     @Produces(MediaType.APPLICATION_JSON)
-    @JWTTokenRequired(Permissions = {Role.AUTHOR, Role.ADMIN, Role.REVIEWER})
+    @JWTAuthRequired(Permissions = {Role.AUTHOR, Role.ADMIN, Role.REVIEWER})
     public Response getReferencesFromDocument(@Context SecurityContext securityContext,
                                               @PathParam("documentId") long documentId) {
 
