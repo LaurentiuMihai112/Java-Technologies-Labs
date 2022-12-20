@@ -30,7 +30,6 @@ public class TokenHandler {
         byte[] apiKeySecretBytes = SECRET_KEY.getBytes();
         Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
 
-        ObjectMapper oMapper = new ObjectMapper();
         Map<String, Object> accountData = new HashMap<>();
         accountData.put("id", id);
 

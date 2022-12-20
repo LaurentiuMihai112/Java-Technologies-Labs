@@ -27,3 +27,4 @@ hs_err_pid*
 /payara5/
 /Lab7/target/
 /Lab8/target/
+*target/
